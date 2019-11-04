@@ -1,0 +1,21 @@
+Gramática
+
+
+DeclVar -> "let" Var 
+Var -> id MeioVar | id Colc MeioVar
+MeioVar -> , id MeioVar | Colc MeioVar | Atrib MeioVar | {},Var |{};  |  ;
+Const -> int Op | double Op | string Op
+Op -> + RHS | - RHS | * RHS | / RHS | % RHS | epsilon
+RHS -> Op id | Op Const
+Colc -> [] Colc | [Valor] Colc | epsilon 
+Atrib -> = Const Op | = id Op | = []
+Valor -> id Op | Const
+
+If -> ( Bool ) Bloco | ( Bool ) Bloco Else 
+Else -> ( Bool ) Bloco | If 
+While -> ( Bool ) Bloco 
+Bool = (true | false | Valor | Bool Comparador | && | || )Bool | epsilon
+Comparador -> == | != | >= | <= | < | >
+
+For -> ( (DeclVar|Var) ; Bool ; Var ) Bloco
+  
